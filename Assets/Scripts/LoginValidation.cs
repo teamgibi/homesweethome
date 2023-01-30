@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; 
 
 public class LoginValidation : MonoBehaviour
 {
@@ -20,7 +21,12 @@ public class LoginValidation : MonoBehaviour
         string pass = password.text;
 
         if (uname == "admin" && pass == "admin"){
-            Debug.Log("Succesful Login :)");
+            Debug.Log("Succesful Login for Producer:)");
+            SceneManager.LoadScene("Producer After Login");  
+        }
+        else if(uname == "user" || pass == "user"){
+            Debug.Log("Succesful Login for Consumer:)");
+            SceneManager.LoadScene("Consumer After Login");  
         }
         else if(uname == "" || pass == ""){
             Debug.Log("Please fill all the input fields...");
