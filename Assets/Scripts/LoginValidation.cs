@@ -35,4 +35,9 @@ public class LoginValidation : MonoBehaviour
             Debug.Log("Wrong username or password. Try again...");
         }
     }
+
+    public void GoogleAuthentication(){
+        // to-do: support login with google authentication api
+        Debug.Log("google api");
+    }
 }
