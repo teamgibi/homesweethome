@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class LoginValidation : MonoBehaviour
+{
+
+    public InputField username;
+    public InputField password;
+
+    public GameObject[] canvas;
+
+    public void Start(){
+        canvas[0].SetActive(true);
+    }
+
+    public void CheckValidation(){
+        string uname = username.text;
+        string pass = password.text;
+
+        if (uname == "admin" && pass == "admin"){
+            Debug.Log("Succesful Login :)");
+        }
+        else if(uname == "" || pass == ""){
+            Debug.Log("Please fill all the input fields...");
+        }
+        else {
+            Debug.Log("Wrong username or password. Try again...");
+        }
+    }
+}
