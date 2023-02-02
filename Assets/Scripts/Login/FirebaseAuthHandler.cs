@@ -7,7 +7,7 @@ using UnityEngine;
 
 public static class FirebaseAuthHandler
 {
-    private const string ApiKey = "AIzaSyCpIcpAABw5swuRMiCBcZ1coZe9fpyqy3M";
+    private const string ApiKey = "AIzaSyCpIcpAABw5swuRMiCBcZ1coZe9fpyqy3M"; //TODO: Change [API_KEY] to your API_KEY
 
     /// <summary>
     /// Signs in a user with their Id Token
