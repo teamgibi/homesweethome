@@ -9,7 +9,7 @@ public static class FirebaseAuthHandler
     {
         var payLoad =
             $"{{\"postBody\":\"id_token={token}&providerId={providerId}\",\"requestUri\":\"http://localhost\",\"returnIdpCredential\":true,\"returnSecureToken\":true}}";
-        RestClient.Post($"https://identitytoolkit.googleapis.com/v1/accounts:signUpWithIdp?key={ApiKey}", payLoad).Then(
+        RestClient.Post($"https://identitytoolkit.googleapis.com/v1/accounts:signInWithIdp?key={ApiKey}", payLoad).Then(
             response =>
             {
                 Debug.Log(response.Text);
