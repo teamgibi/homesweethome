@@ -45,7 +45,7 @@ public static class GoogleAuthenticator
                 if (success)
                 {
                     ExchangeAuthCodeWithIdToken(response.Text,
-                        idToken => { FirebaseAuthHandler.SingInWithToken(idToken, "google.com"); });
+                        idToken => { Tests.FirebaseSDKSignUpWithGoogle(idToken, "google.com"); });
                 }
                 else
                 {

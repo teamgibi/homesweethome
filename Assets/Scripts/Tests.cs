@@ -20,8 +20,8 @@ public static class Tests
     public static void FirebaseSDKSignUpWithCredentials()
     {   
         var auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
-        var email = "fatugay@email.com";
-        var password = "abcdefgh";
+        var email = "unity@test.sss";
+        var password = "Passw0rd";
         auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
         if (task.IsCanceled) {
             Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
@@ -37,6 +37,28 @@ public static class Tests
         Debug.LogFormat("Firebase user created successfully: {0} ({1})",
             newUser.DisplayName, newUser.UserId);
         });
+    }
+
+    public static void FirebaseSDKSignUpWithGoogle(string googleIdToken, string googleAccessToken){
+
+        var auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+        Firebase.Auth.Credential credential = Firebase.Auth.GoogleAuthProvider.GetCredential(googleIdToken, googleAccessToken);
+        auth.SignInWithCredentialAsync(credential).ContinueWith(task => {
+        if (task.IsCanceled) {
+            Debug.LogError("SignInWithCredentialAsync was canceled.");
+            return;
+        }
+        if (task.IsFaulted) {
+            Debug.LogError("SignInWithCredentialAsync encountered an error: " + task.Exception);
+            return;
+        }
+
+        Firebase.Auth.FirebaseUser newUser = task.Result;
+        Debug.LogFormat("User signed in successfully: {0} ({1})",
+            newUser.DisplayName, newUser.UserId);
+        });
+
+        Debug.Log("girdim ben");
     }
 }
 
