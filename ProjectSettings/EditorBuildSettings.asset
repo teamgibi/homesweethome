@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Consumer After Login.unity
     guid: 3d8b11ec7ef564e92a223be8acbde79b
+  - enabled: 1
+    path: Assets/Scenes/Login Scene.unity
+    guid: e43f7c36fb32d4ae0871216249441bb5
+  - enabled: 1
+    path: Assets/Scenes/Register Scene.unity
+    guid: ea235670be11042c7805427ba26280b6
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b56be7bc1faad4bfc89ab83ea3366708, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 15ae49803c01c4429923c6172756b7a3, type: 2}
