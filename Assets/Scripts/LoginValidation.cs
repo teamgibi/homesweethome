@@ -38,6 +38,7 @@ public class LoginValidation : MonoBehaviour
 
     public void GoogleAuthentication(){
         // to-do: support login with google authentication api
+        SceneManager.LoadScene("Register Scene");
         Debug.Log("google api");
     }
 }
