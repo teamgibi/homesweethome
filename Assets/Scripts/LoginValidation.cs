@@ -9,16 +9,17 @@ public class LoginValidation : MonoBehaviour
 
     public InputField username;
     public InputField password;
-    public Button loginButton;
-
-    public int selectedInput;
-    
-
 
     public GameObject[] canvas;
 
     public void Start(){
         canvas[0].SetActive(true);
+    }
+
+    private void Update(){
+        if (Input.GetKeyDown(KeyCode.Return)){
+            CheckValidation();
+        }
     }
 
     public void CheckValidation(){

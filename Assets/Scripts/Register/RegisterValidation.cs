@@ -17,6 +17,12 @@ public class RegisterValidation : MonoBehaviour
         canvas[0].SetActive(true);
     }
 
+    private void Update(){
+        if (Input.GetKeyDown(KeyCode.Return)){
+            Register();
+        }
+    }
+
     public void Register(){
         // to-do: support login with google authentication api
 
