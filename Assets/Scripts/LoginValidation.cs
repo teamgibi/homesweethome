@@ -9,6 +9,11 @@ public class LoginValidation : MonoBehaviour
 
     public InputField username;
     public InputField password;
+    public Button loginButton;
+
+    public int selectedInput;
+    
+
 
     public GameObject[] canvas;
 
@@ -26,7 +31,7 @@ public class LoginValidation : MonoBehaviour
         }
         else if(uname == "user" || pass == "user"){
             Debug.Log("Succesful Login for Consumer:)");
-            SceneManager.LoadScene("Consumer After Login");  
+            SceneManager.LoadScene("Customer After Login");  
         }
         else if(uname == "" || pass == ""){
             Debug.Log("Please fill all the input fields...");

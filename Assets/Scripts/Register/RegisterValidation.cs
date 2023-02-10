@@ -24,7 +24,10 @@ public class RegisterValidation : MonoBehaviour
         string registerPass = registerPassword.text;
         string confirmPass = confirmPassword.text;
 
-        if (string.Equals(registerPass, confirmPass)){
+        if(registerUname == "" || registerPass == "" || confirmPass == ""){
+            Debug.Log("Please fill all the input fields...");
+        }
+        else if (string.Equals(registerPass, confirmPass)){
             Debug.Log("Confirm is done!");
         }else{
             Debug.Log("Password doesn't match!");
