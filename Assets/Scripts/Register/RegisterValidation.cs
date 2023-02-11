@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class RegisterValidation : MonoBehaviour
 {
 
-    public InputField registerUsername;
+    public InputField registerMail;
     public InputField registerPassword;
     public InputField confirmPassword;
 
@@ -26,11 +26,11 @@ public class RegisterValidation : MonoBehaviour
     public void Register(){
         // to-do: support login with google authentication api
 
-        string registerUname = registerUsername.text;
+        string registerEmail = registerMail.text;
         string registerPass = registerPassword.text;
         string confirmPass = confirmPassword.text;
 
-        if(registerUname == "" || registerPass == "" || confirmPass == ""){
+        if(registerEmail == "" || registerPass == "" || confirmPass == ""){
             Debug.Log("Please fill all the input fields...");
         }
         else if (string.Equals(registerPass, confirmPass)){

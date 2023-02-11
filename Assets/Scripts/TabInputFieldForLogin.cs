@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class TabInputFieldForLogin : MonoBehaviour
 {
 
-    public InputField username; //0
+    public InputField email; //0
     public InputField password; //1
 
     public int selectedInput;
@@ -30,7 +30,7 @@ public class TabInputFieldForLogin : MonoBehaviour
         void SelectInputField(){
             switch(selectedInput){
                 case 0:
-                    username.Select();
+                    email.Select();
                     break;
                 case 1:
                     password.Select();
@@ -39,7 +39,7 @@ public class TabInputFieldForLogin : MonoBehaviour
         }
     }
 
-    public void UsernameSelected() => selectedInput = 0;
+    public void EmailSelected() => selectedInput = 0;
     public void PasswordSelected() => selectedInput = 1;
 
 }

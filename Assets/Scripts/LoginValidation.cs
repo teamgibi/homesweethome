@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LoginValidation : MonoBehaviour
 {
 
-    public InputField username;
+    public InputField email;
     public InputField password;
 
     public GameObject[] canvas;
@@ -23,28 +23,26 @@ public class LoginValidation : MonoBehaviour
     }
 
     public void CheckValidation(){
-        string uname = username.text;
+        string mail = email.text;
         string pass = password.text;
 
-        if (uname == "admin" && pass == "admin"){
+        if (mail == "admin" && pass == "admin"){
             Debug.Log("Succesful Login for Producer:)");
             SceneManager.LoadScene("Producer After Login");  
         }
-        else if(uname == "user" || pass == "user"){
+        else if(mail == "user" || pass == "user"){
             Debug.Log("Succesful Login for Consumer:)");
             SceneManager.LoadScene("Customer After Login");  
         }
-        else if(uname == "" || pass == ""){
+        else if(mail == "" || pass == ""){
             Debug.Log("Please fill all the input fields...");
         }
         else {
-            Debug.Log("Wrong username or password. Try again...");
+            Debug.Log("Wrong email or password. Try again...");
         }
     }
 
-    public void GoogleAuthentication(){
-        // to-do: support login with google authentication api
+    public void Register(){
         SceneManager.LoadScene("Register Scene");
-        Debug.Log("google api");
     }
 }
