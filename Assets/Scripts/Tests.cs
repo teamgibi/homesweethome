@@ -7,9 +7,9 @@ public static class Tests
 {
     private const string ApiKey = "AIzaSyCpIcpAABw5swuRMiCBcZ1coZe9fpyqy3M";
 
-    public static void SignUpWithCredentials()
+    public static void SignUpWithCredentials(string email, string password)
     {
-        var payLoad = $"{{\"email\":\"fatih@example.com\",\"password\":\"Passw0rd\",\"returnSecureToken\":true}}";
+        var payLoad = $"{{\"email\":\"${email}\",\"password\":\"${password}\",\"returnSecureToken\":true}}";
         RestClient.Post($"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key={ApiKey}", payLoad).Then(
             response =>
             {
@@ -17,11 +17,28 @@ public static class Tests
             }).Catch(Debug.Log);    
     }
 
-    public static void FirebaseSDKSignUpWithCredentials()
+    public static void FirebaseSDKSignInWithCredentials(string email, string password)
     {   
         var auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
-        var email = "unity@test.sss";
-        var password = "Passw0rd";
+        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
+        if (task.IsCanceled) {
+            Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
+            return;
+        }
+        if (task.IsFaulted) {
+            Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+            return;
+        }
+
+        Firebase.Auth.FirebaseUser newUser = task.Result;
+        Debug.LogFormat("User signed in successfully: {0} ({1})",
+            newUser.DisplayName, newUser.UserId);
+        });
+    }
+
+    public static void FirebaseSDKSignUpWithCredentials(string email, string password)
+    {   
+        var auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
         if (task.IsCanceled) {
             Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
@@ -57,8 +74,6 @@ public static class Tests
         Debug.LogFormat("User signed in successfully: {0} ({1})",
             newUser.DisplayName, newUser.UserId);
         });
-
-        Debug.Log("girdim ben");
     }
 }
 

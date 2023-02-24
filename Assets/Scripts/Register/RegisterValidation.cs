@@ -33,12 +33,11 @@ public class RegisterValidation : MonoBehaviour
         if(registerEmail == "" || registerPass == "" || confirmPass == ""){
             Debug.Log("Please fill all the input fields...");
         }
-        else if (string.Equals(registerPass, confirmPass)){
-            Debug.Log("Confirm is done!");
-        }else{
+        else if (!string.Equals(registerPass, confirmPass)){
             Debug.Log("Password doesn't match!");
+        }else{
+            Tests.FirebaseSDKSignUpWithCredentials(registerEmail, registerPass);
         }
-
     }
 
     public void BackToLoginScene(){

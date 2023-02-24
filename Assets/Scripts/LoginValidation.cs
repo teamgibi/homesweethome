@@ -26,23 +26,15 @@ public class LoginValidation : MonoBehaviour
         string mail = email.text;
         string pass = password.text;
 
-        if (mail == "admin" && pass == "admin"){
-            Debug.Log("Succesful Login for Producer:)");
-            SceneManager.LoadScene("Producer After Login");  
-        }
-        else if(mail == "user" || pass == "user"){
-            Debug.Log("Succesful Login for Consumer:)");
-            SceneManager.LoadScene("Customer After Login");  
-        }
-        else if(mail == "" || pass == ""){
-            Debug.Log("Please fill all the input fields...");
-        }
-        else {
-            Debug.Log("Wrong email or password. Try again...");
-        }
+        Tests.FirebaseSDKSignInWithCredentials(mail, pass);
     }
 
     public void Register(){
         SceneManager.LoadScene("Register Scene");
+    }
+
+    public void OnClickGetGoogleCode()
+    {
+        GoogleAuthenticator.SignInWithGoogle();
     }
 }
