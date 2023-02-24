@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Producer After Login.unity
     guid: 6ef7ad38299d94195b79af001d18c320
   - enabled: 1
-    path: Assets/Scenes/Consumer After Login.unity
+    path: Assets/Scenes/Customer After Login.unity
     guid: 3d8b11ec7ef564e92a223be8acbde79b
   - enabled: 1
     path: Assets/Scenes/Login Scene.unity
