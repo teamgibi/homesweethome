@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement; 
+using EasyUI.Dialogs;
 
 public class RegisterValidation : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class RegisterValidation : MonoBehaviour
 
         if(registerEmail == "" || registerPass == "" || confirmPass == ""){
             Debug.Log("Please fill all the input fields...");
+            DialogUI.Instance.SetMessage("deneme 1-2-3").Show();
         }
         else if (!string.Equals(registerPass, confirmPass)){
             Debug.Log("Password doesn't match!");
