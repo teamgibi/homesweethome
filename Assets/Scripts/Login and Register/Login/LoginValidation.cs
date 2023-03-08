@@ -4,37 +4,33 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement; 
 
-public class LoginValidation : MonoBehaviour
-{
+public class LoginValidation : MonoBehaviour {
 
     public InputField email;
     public InputField password;
-
     public GameObject[] canvas;
 
-    public void Start(){
+    public void Start() {
         canvas[0].SetActive(true);
     }
 
-    private void Update(){
-        if (Input.GetKeyDown(KeyCode.Return)){
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Return)) {
             CheckValidation();
         }
     }
 
-    public void CheckValidation(){
+    public void CheckValidation() {
         string mail = email.text;
         string pass = password.text;
-
         Tests.FirebaseSDKSignInWithCredentials(mail, pass);
     }
 
-    public void Register(){
+    public void Register() {
         SceneManager.LoadScene("Register Scene");
     }
 
-    public void OnClickGetGoogleCode()
-    {
+    public void OnClickGetGoogleCode() {
         GoogleAuthenticator.SignInWithGoogle();
     }
 }

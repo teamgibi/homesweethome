@@ -4,11 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement; 
 
-public class CustomerBackToLogin : MonoBehaviour
-{
-
-    public void BackToLoginScene(){
+public class ProducerBackToLogin : MonoBehaviour {
+    public void BackToLoginScene() {
         SceneManager.LoadScene("Login Scene");
     }
-
 }

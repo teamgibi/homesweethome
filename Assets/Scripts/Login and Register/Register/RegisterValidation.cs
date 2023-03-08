@@ -5,45 +5,42 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement; 
 using EasyUI.Dialogs;
 
-public class RegisterValidation : MonoBehaviour
-{
+public class RegisterValidation : MonoBehaviour {
 
     public InputField registerMail;
     public InputField registerPassword;
     public InputField confirmPassword;
-
     public GameObject[] canvas;
 
-    public void Start(){
+    public void Start() {
         canvas[0].SetActive(true);
     }
 
-    private void Update(){
-        if (Input.GetKeyDown(KeyCode.Return)){
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Return)) {
             Register();
         }
     }
 
     public void Register(){
-        // to-do: support login with google authentication api
 
         string registerEmail = registerMail.text;
         string registerPass = registerPassword.text;
         string confirmPass = confirmPassword.text;
 
-        if(registerEmail == "" || registerPass == "" || confirmPass == ""){
+        if(registerEmail == "" || registerPass == "" || confirmPass == "") {
             Debug.Log("Please fill all the input fields...");
             DialogUI.Instance.SetMessage("deneme 1-2-3").Show();
         }
-        else if (!string.Equals(registerPass, confirmPass)){
+        else if (!string.Equals(registerPass, confirmPass)) {
             Debug.Log("Password doesn't match!");
-        }else{
+        }
+        else {
             Tests.FirebaseSDKSignUpWithCredentials(registerEmail, registerPass);
         }
     }
 
-    public void BackToLoginScene(){
+    public void BackToLoginScene() {
         SceneManager.LoadScene("Login Scene");
     }
-
 }
