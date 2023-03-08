@@ -36,7 +36,7 @@ public class RegisterValidation : MonoBehaviour {
             Debug.Log("Password doesn't match!");
         }
         else {
-            Tests.FirebaseSDKSignUpWithCredentials(registerEmail, registerPass);
+            FirebaseFunctions.SignUpWithCredentials(registerEmail, registerPass);
         }
     }
 

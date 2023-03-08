@@ -28,7 +28,7 @@ public static class GoogleAuthenticator
         }).Then(async response =>{
             var success = response.Text != "";
             if (success) {
-                ExchangeAuthCodeWithIdToken(response.Text, idToken => {Tests.FirebaseSDKSignUpWithGoogle(idToken, "google.com");});
+                ExchangeAuthCodeWithIdToken(response.Text, idToken => {FirebaseFunctions.SignUpWithGoogle(idToken, "google.com");});
             }
             else {
                 await Task.Delay(3000);

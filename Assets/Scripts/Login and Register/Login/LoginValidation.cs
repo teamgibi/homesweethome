@@ -23,7 +23,7 @@ public class LoginValidation : MonoBehaviour {
     public void CheckValidation() {
         string mail = email.text;
         string pass = password.text;
-        Tests.FirebaseSDKSignInWithCredentials(mail, pass);
+        FirebaseFunctions.SignInWithCredentials(mail, pass);
     }
 
     public void Register() {
