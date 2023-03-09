@@ -3,7 +3,7 @@ using UnityEngine;
 using Firebase;
 using Firebase.Auth;
 
-public static class FirebaseFunctions {
+public class FirebaseFunctions {
 
     /* Unused for now. Manual REST API for Sign Up, not with Firebase.
     private const string ApiKey = "AIzaSyCpIcpAABw5swuRMiCBcZ1coZe9fpyqy3M";
@@ -17,13 +17,8 @@ public static class FirebaseFunctions {
     }
     */
 
-    private var auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
-    
-    public Firebase.Auth.FirebaseAuth.DefaultInstance GetAuth(){
-        return auth;
-    }
-
-    public void SignInWithCredentials(string email, string password) {   
+    public static void SignInWithCredentials(string email, string password) { 
+        var auth = Firebase.Auth.FirebaseAuth.DefaultInstance;  
         auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
             if (task.IsCanceled) {
                 Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
@@ -38,7 +33,8 @@ public static class FirebaseFunctions {
         });
     }
 
-    public void SignUpWithCredentials(string email, string password) {   
+    public static void SignUpWithCredentials(string email, string password) {
+        var auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
             if (task.IsCanceled) {
                 Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
@@ -54,7 +50,8 @@ public static class FirebaseFunctions {
         });
     }
 
-    public void SignUpWithGoogle(string googleIdToken, string googleAccessToken) {
+    public static void SignUpWithGoogle(string googleIdToken, string googleAccessToken) {
+        var auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         Firebase.Auth.Credential credential = Firebase.Auth.GoogleAuthProvider.GetCredential(googleIdToken, googleAccessToken);
         auth.SignInWithCredentialAsync(credential).ContinueWith(task => {
             if (task.IsCanceled) {
