@@ -12,14 +12,7 @@ public class TabInputFieldForRegister : MonoBehaviour {
     public int selectedInput;
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.LeftShift)){
-            selectedInput--;
-            if (selectedInput < 0) {
-                selectedInput = 2;
-            }
-            SelectInputField();
-        }
-        else if (Input.GetKeyDown(KeyCode.Tab)) {
+        if (Input.GetKeyDown(KeyCode.Tab)) {
             selectedInput++;
             if (selectedInput > 2) {
                 selectedInput = 0;

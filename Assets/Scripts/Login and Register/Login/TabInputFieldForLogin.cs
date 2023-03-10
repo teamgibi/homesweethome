@@ -11,14 +11,7 @@ public class TabInputFieldForLogin : MonoBehaviour {
     public int selectedInput;
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.LeftShift)){
-            selectedInput--;
-            if (selectedInput < 0){
-                selectedInput = 1;
-            }
-            SelectInputField();
-        }
-        else if (Input.GetKeyDown(KeyCode.Tab)){
+        if (Input.GetKeyDown(KeyCode.Tab)){
             selectedInput++;
             if (selectedInput > 1){
                 selectedInput = 0;

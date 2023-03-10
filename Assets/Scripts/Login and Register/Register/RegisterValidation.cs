@@ -30,10 +30,11 @@ public class RegisterValidation : MonoBehaviour {
 
         if(registerEmail == "" || registerPass == "" || confirmPass == "") {
             Debug.Log("Please fill all the input fields...");
-            DialogUI.Instance.SetMessage("deneme 1-2-3").Show();
+            DialogUI.Instance.SetMessage("Please fill all input fields!").Show();
         }
         else if (!string.Equals(registerPass, confirmPass)) {
             Debug.Log("Password doesn't match!");
+            DialogUI.Instance.SetMessage("Passwords doesn't match!").Show();
         }
         else {
             FirebaseFunctions.SignUpWithCredentials(registerEmail, registerPass);

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 165662245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a86b0d2a5acea4989923bf533138c15c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5479a252ef26c3642932d3afd077f111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   registerMail: {fileID: 1098544475}
@@ -1365,7 +1365,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 721709195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 006092f063d1642a5a23971d692c1c20, type: 3}
+  m_Script: {fileID: 11500000, guid: 349c2ed750817d445ba8bb56a1ec05f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   email: {fileID: 1098544475}
@@ -2300,7 +2300,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1733743817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15ce98cada8264353a93dfdbe7fd84c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 735843f590dad2b4aaecc7d28a160a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1379937723}

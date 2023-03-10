@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement; 
+using EasyUI.Dialogs;
 
 public class LoginValidation : MonoBehaviour {
 
@@ -23,7 +24,13 @@ public class LoginValidation : MonoBehaviour {
     public void CheckValidation() {
         string mail = email.text;
         string pass = password.text;
-        FirebaseFunctions.SignInWithCredentials(mail, pass);
+        if(mail == "" || pass == "") {
+            Debug.Log("Please fill all the input fields...");
+            DialogUI.Instance.SetMessage("Please fill all input fields!").Show();
+        }
+        else {
+            FirebaseFunctions.SignInWithCredentials(mail, pass);
+        }
     }
 
     public void Register() {
