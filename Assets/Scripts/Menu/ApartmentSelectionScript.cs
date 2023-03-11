@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement; 
-using EasyUI.Dialogs;
 
 public class ApartmentSelectionScript : MonoBehaviour {
 
@@ -14,22 +13,22 @@ public class ApartmentSelectionScript : MonoBehaviour {
     }
 
     public void Apartment1(){
-        //SceneManager.LoadScene("Apt 1 Scene");
+        SceneManager.LoadScene("Apartment-1");
         Debug.Log("1");
     }
 
     public void Apartment2(){
-        //SceneManager.LoadScene("Apt 2 Scene");
+        SceneManager.LoadScene("Apartment-2");
         Debug.Log("2");
     }
 
     public void Apartment3(){
-        //SceneManager.LoadScene("Apt 3 Scene");
+        SceneManager.LoadScene("Apartment-3");
         Debug.Log("3");
     }
 
     public void Apartment4(){
-        //SceneManager.LoadScene("Apt 4 Scene");
+        SceneManager.LoadScene("Lobby");
         Debug.Log("4");
     }
 

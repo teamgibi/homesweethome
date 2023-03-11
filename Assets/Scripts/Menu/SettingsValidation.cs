@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement; 
-using EasyUI.Dialogs;
-
 public class SettingsValidation : MonoBehaviour {
 
     public GameObject[] canvas;
@@ -14,6 +12,7 @@ public class SettingsValidation : MonoBehaviour {
     }
 
     public void BackToLoginScene() {
-        SceneManager.LoadScene("Login Scene");
+        Debug.Log("back");
+        SceneManager.LoadScene("Apartment Selection Scene");
     }
 }

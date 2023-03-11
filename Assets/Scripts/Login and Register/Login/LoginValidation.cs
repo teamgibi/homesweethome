@@ -17,11 +17,11 @@ public class LoginValidation : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Return)) {
-            CheckValidation();
+            Login();
         }
     }
 
-    public void CheckValidation() {
+    public void Login() {
         string mail = email.text;
         string pass = password.text;
         if(mail == "" || pass == "") {
