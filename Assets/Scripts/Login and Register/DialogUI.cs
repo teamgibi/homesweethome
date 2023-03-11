@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+
 
 namespace EasyUI.Dialogs {
 
@@ -11,14 +13,12 @@ namespace EasyUI.Dialogs {
 
         [SerializeField] GameObject canvas;
         [SerializeField] Text dialogUIText;
-        [SerializeField] Button closeUIButton;
+
         Dialog dialog = new Dialog();
         public static DialogUI Instance;
 
         void Awake() {
             Instance = this;
-            closeUIButton.onClick.RemoveAllListeners();
-            closeUIButton.onClick.AddListener(Hide);
             canvas.SetActive(false);
         }
 
@@ -27,15 +27,18 @@ namespace EasyUI.Dialogs {
             return Instance;
         }
 
-        public void Show() {
-            Debug.Log("show method");
+        public void Show(){
+            StartCoroutine(WaitBeforeShow());
+        }
+
+        private IEnumerator WaitBeforeShow(){
+            Debug.Log("girdi iceeri");
             dialogUIText.text = dialog.DialogText;
             canvas.SetActive(true);
+            yield return new WaitForSeconds(3);
+            canvas.SetActive(false);
+            dialog = new Dialog();
         }
         
-        public void Hide() {
-             canvas.SetActive(false);
-             dialog = new Dialog();
-        }
     }
 }

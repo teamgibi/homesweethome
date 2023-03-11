@@ -37,6 +37,10 @@ public class LoginValidation : MonoBehaviour {
         SceneManager.LoadScene("Register Scene");
     }
 
+    public void Settings() {
+        SceneManager.LoadScene("Settings Scene");
+    }
+
     public void OnClickGetGoogleCode() {
         GoogleAuthenticator.SignInWithGoogle();
     }
