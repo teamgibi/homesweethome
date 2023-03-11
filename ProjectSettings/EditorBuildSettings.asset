@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings Scene.unity
     guid: 1670243165da747c6b058b90678c95e8
+  - enabled: 1
+    path: Assets/Scenes/Apartment Selection Scene.unity
+    guid: 305153495c9a940a5a456f48c4c34752
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b56be7bc1faad4bfc89ab83ea3366708, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 15ae49803c01c4429923c6172756b7a3, type: 2}
