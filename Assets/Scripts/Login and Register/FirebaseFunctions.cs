@@ -21,38 +21,6 @@ public class FirebaseFunctions {
     }
     */
     
-    public void SignUpWithCredentials(string email, string password) {
-        var auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
-        auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
-            if (task.IsCanceled) {
-                Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
-                return;
-            }
-            if (task.IsFaulted) {
-                Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
-                return;
-            }
-
-            Firebase.Auth.FirebaseUser newUser = task.Result;
-            Debug.LogFormat("Firebase user created successfully: {0} ({1})", newUser.DisplayName, newUser.UserId);
-        });
-
-        Firebase.Auth.FirebaseUser user = auth.CurrentUser;
-        if (user != null) {
-            user.SendEmailVerificationAsync().ContinueWith(task => {
-                if (task.IsCanceled) {
-                    Debug.LogError("SendEmailVerificationAsync was canceled.");
-                    return;
-                }
-                if (task.IsFaulted) {
-                    Debug.LogError("SendEmailVerificationAsync encountered an error: " + task.Exception);
-                    return;
-                }
-                Debug.Log("Email sent successfully.");
-            });
-        }
-    }
-
     public void SignUpWithGoogle(string googleIdToken, string googleAccessToken) {
         var auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         Firebase.Auth.Credential credential = Firebase.Auth.GoogleAuthProvider.GetCredential(googleIdToken, googleAccessToken);

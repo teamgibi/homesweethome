@@ -1,13 +1,16 @@
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement; 
+
 using Firebase;
 using Firebase.Auth;
 using Firebase.Extensions;
+
 using EasyUI.Dialogs;
 
 public class LoginValidation : MonoBehaviour {
@@ -59,9 +62,9 @@ public class LoginValidation : MonoBehaviour {
                     }
                 }
             }
-            Firebase.Auth.FirebaseUser newUser = task.Result;
-            Debug.LogFormat("User signed in successfully: {0} ({1} {2})", newUser.DisplayName, newUser.UserId, newUser.IsEmailVerified);
-            if (newUser.IsEmailVerified){
+            Firebase.Auth.FirebaseUser user = task.Result;
+            Debug.LogFormat("User signed in successfully: {0} ({1} {2})", user.DisplayName, user.UserId, user.IsEmailVerified);
+            if (user.IsEmailVerified){
                 DialogUI.Instance.SetMessage("Successfully logged in!").Show();
             } else{
                 DialogUI.Instance.SetMessage("Please verify your email address!").Show();
