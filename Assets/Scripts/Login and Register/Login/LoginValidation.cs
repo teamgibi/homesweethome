@@ -66,6 +66,7 @@ public class LoginValidation : MonoBehaviour {
             Debug.LogFormat("User signed in successfully: {0} ({1} {2})", user.DisplayName, user.UserId, user.IsEmailVerified);
             if (user.IsEmailVerified){
                 DialogUI.Instance.SetMessage("Successfully logged in!").Show();
+                SceneManager.LoadScene("Apartment Selection Scene");
             } else{
                 DialogUI.Instance.SetMessage("Please verify your email address!").Show();
             }

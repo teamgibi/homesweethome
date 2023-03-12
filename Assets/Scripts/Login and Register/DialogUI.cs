@@ -38,6 +38,5 @@ namespace EasyUI.Dialogs {
             canvas.SetActive(false);
             dialog = new Dialog();
         }
-        
     }
 }
