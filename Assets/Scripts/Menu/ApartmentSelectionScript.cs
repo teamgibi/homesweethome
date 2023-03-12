@@ -17,11 +17,11 @@ public class ApartmentSelectionScript : MonoBehaviour {
     }
 
     public void Apartment2(){
-        SceneManager.LoadScene("Apartment-2");
+        SceneManager.LoadScene("Apartment2");
     }
 
     public void Apartment3(){
-        SceneManager.LoadScene("Apartment-3");
+        SceneManager.LoadScene("Apartment3");
     }
 
     public void Apartment4(){
