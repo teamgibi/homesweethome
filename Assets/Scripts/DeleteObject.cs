@@ -7,6 +7,7 @@ public class DeleteObject : MonoBehaviour
 {
     public Button yourButton;
     public GameObject modal;
+    public GameObject prefab;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class DeleteObject : MonoBehaviour
     // Update is called once per frame
     void TaskOnClick()
     {
-        Destroy(gameObject);
+        Destroy(prefab);
         modal.SetActive(false);
     }
 
