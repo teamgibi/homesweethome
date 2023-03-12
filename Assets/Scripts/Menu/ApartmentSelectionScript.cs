@@ -14,22 +14,18 @@ public class ApartmentSelectionScript : MonoBehaviour {
 
     public void Apartment1(){
         SceneManager.LoadScene("Apartment-1");
-        Debug.Log("1");
     }
 
     public void Apartment2(){
         SceneManager.LoadScene("Apartment-2");
-        Debug.Log("2");
     }
 
     public void Apartment3(){
         SceneManager.LoadScene("Apartment-3");
-        Debug.Log("3");
     }
 
     public void Apartment4(){
         SceneManager.LoadScene("Lobby");
-        Debug.Log("4");
     }
 
     public void Logout() {
