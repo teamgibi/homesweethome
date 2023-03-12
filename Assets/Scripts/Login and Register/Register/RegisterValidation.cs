@@ -37,7 +37,8 @@ public class RegisterValidation : MonoBehaviour {
             DialogUI.Instance.SetMessage("Passwords doesn't match!").Show();
         }
         else {
-            FirebaseFunctions.SignUpWithCredentials(registerEmail, registerPass);
+            FirebaseFunctions fb = new FirebaseFunctions();
+            fb.SignUpWithCredentials(registerEmail, registerPass);
         }
     }
 

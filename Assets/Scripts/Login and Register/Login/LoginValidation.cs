@@ -29,7 +29,17 @@ public class LoginValidation : MonoBehaviour {
             DialogUI.Instance.SetMessage("Please fill all input fields!").Show();
         }
         else {
-            FirebaseFunctions.SignInWithCredentials(mail, pass);
+            FirebaseFunctions fb = new FirebaseFunctions();
+            fb.SignInWithCredentials(mail, pass);
+            if(fb.lastnum == -1){
+                DialogUI.Instance.SetMessage("An error occured when trying to login!").Show();
+            }
+            else if(fb.lastnum == 1){
+                DialogUI.Instance.SetMessage("Successfully logged in!").Show();
+            }
+            else if(fb.lastnum == 2){
+                DialogUI.Instance.SetMessage("Please verify your email address!").Show();
+            }
         }
     }
 
