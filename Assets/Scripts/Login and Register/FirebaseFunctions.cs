@@ -3,6 +3,7 @@ using UnityEngine;
 using Firebase;
 using Firebase.Auth;
 using Firebase.Extensions;
+using System.Threading.Tasks;
 
 public class FirebaseFunctions {
 
@@ -19,30 +20,7 @@ public class FirebaseFunctions {
             }).Catch(Debug.Log);    
     }
     */
-
-    public void SignInWithCredentials(string email, string password) { 
-        var auth = Firebase.Auth.FirebaseAuth.DefaultInstance; 
-        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task => {
-            if (task.IsCanceled) {
-                Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
-                this.lastnum = -1;
-                return;
-            }
-            if (task.IsFaulted) {
-                Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
-                this.lastnum = -1;
-                return;
-            }
-            Firebase.Auth.FirebaseUser newUser = task.Result;
-            Debug.LogFormat("User signed in successfully: {0} ({1} {2})", newUser.DisplayName, newUser.UserId, newUser.IsEmailVerified);
-            if (newUser.IsEmailVerified){
-                this.lastnum = 1;
-            } else{
-                this.lastnum = 2;
-            }
-        });
-    }
-
+    
     public void SignUpWithCredentials(string email, string password) {
         var auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
         auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWith(task => {
