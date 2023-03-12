@@ -11,8 +11,13 @@ public class SettingsValidation : MonoBehaviour {
         canvas[0].SetActive(true);
     }
 
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            BackToLoginScene();
+        }
+    }
+
     public void BackToLoginScene() {
-        Debug.Log("back");
-        SceneManager.LoadScene("Apartment Selection Scene");
+        SceneManager.LoadScene("Login Scene");
     }
 }
