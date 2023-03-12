@@ -5,8 +5,7 @@ using System.Threading.Tasks;
 using Proyecto26;
 using UnityEngine;
 
-public static class GoogleAuthenticator
-{
+public static class GoogleAuthenticator {
     private const string ClientId = "579803631028-6kv3rl2hl8iknd3btussmelvq83sjjfd.apps.googleusercontent.com";
     private const string ClientSecret = "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";
     private static string RedirectUri = "https://us-central1-autonomous-gist-376319.cloudfunctions.net/saveAuthToken"; 
@@ -28,7 +27,8 @@ public static class GoogleAuthenticator
         }).Then(async response =>{
             var success = response.Text != "";
             if (success) {
-                ExchangeAuthCodeWithIdToken(response.Text, idToken => {FirebaseFunctions.SignUpWithGoogle(idToken, "google.com");});
+                FirebaseFunctions fb = new FirebaseFunctions();
+                ExchangeAuthCodeWithIdToken(response.Text, idToken => {fb.SignUpWithGoogle(idToken, "google.com");});
             }
             else {
                 await Task.Delay(3000);
