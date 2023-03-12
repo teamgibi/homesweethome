@@ -32,13 +32,11 @@ namespace EasyUI.Dialogs {
         }
 
         private IEnumerator WaitBeforeShow(){
-            Debug.Log("girdi iceeri");
             dialogUIText.text = dialog.DialogText;
             canvas.SetActive(true);
             yield return new WaitForSeconds(3);
             canvas.SetActive(false);
             dialog = new Dialog();
         }
-        
     }
 }
