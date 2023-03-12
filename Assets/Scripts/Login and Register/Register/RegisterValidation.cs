@@ -38,11 +38,11 @@ public class RegisterValidation : MonoBehaviour {
 
         if(registerEmail == "" || registerPass == "" || confirmPass == "") {
             Debug.Log("Please fill all the input fields...");
-            DialogUI.Instance.SetMessage("Please fill all input fields!").Show();
+            DialogUI.Instance.SetMessage("Please fill all input fields!", 3).Show();
         }
         else if (!string.Equals(registerPass, confirmPass)) {
             Debug.Log("Password doesn't match!");
-            DialogUI.Instance.SetMessage("Passwords doesn't match!").Show();
+            DialogUI.Instance.SetMessage("Passwords doesn't match!", 3).Show();
         }
         else {
             SignUpWithCredentials(registerEmail, registerPass);
@@ -54,7 +54,7 @@ public class RegisterValidation : MonoBehaviour {
         auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task => {
             if (task.IsCanceled) {
                 Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
-                DialogUI.Instance.SetMessage("Register cancelled!").Show();
+                DialogUI.Instance.SetMessage("Register cancelled!", 3).Show();
                 return;
             }
             if (task.IsFaulted) {
@@ -64,7 +64,7 @@ public class RegisterValidation : MonoBehaviour {
                     if (firebaseEx != null) {
                         authErrorCode = String.Format("AuthError.{0}: ", ((Firebase.Auth.AuthError)firebaseEx.ErrorCode).ToString());
                         Debug.Log("CreateUserWithEmailAndPasswordAsync encountered an error: " + authErrorCode + exception.ToString());
-                        DialogUI.Instance.SetMessage(exception.ToString()).Show();
+                        DialogUI.Instance.SetMessage(exception.ToString(), 5).Show();
                         return;
                     }
                 }
@@ -75,17 +75,17 @@ public class RegisterValidation : MonoBehaviour {
                 newUser.SendEmailVerificationAsync().ContinueWithOnMainThread(verify => {
                     if (verify.IsCanceled) {
                         Debug.LogError("SendEmailVerificationAsync was canceled.");
-                        DialogUI.Instance.SetMessage("Email verification cancelled!").Show();
+                        DialogUI.Instance.SetMessage("Email verification cancelled!", 3).Show();
                         return;
                     }
                     if (verify.IsFaulted) {
                         Debug.LogError("SendEmailVerificationAsync encountered an error: " + verify.Exception);
-                        DialogUI.Instance.SetMessage("User successfully registered but verification email can not sent!").Show();
+                        DialogUI.Instance.SetMessage("User successfully registered but verification email can not sent!", 5).Show();
                         return;
                     }
                     Debug.Log("Verification email sent successfully.");
-                    DialogUI.Instance.SetMessage("User successfully registered and verification email sent!").Show();
-                    SceneManager.LoadScene("Login Scene");
+                    DialogUI.Instance.SetMessage("User successfully registered and verification email sent!", 3).Show();
+                    Invoke("BackToLoginScene", 3);
                 });
             }
             return;
