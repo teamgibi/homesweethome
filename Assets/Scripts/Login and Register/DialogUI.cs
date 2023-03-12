@@ -7,6 +7,7 @@ namespace EasyUI.Dialogs {
 
     public class Dialog {
         public string DialogText;
+        public int alive_time;
     }
 
     public class DialogUI : MonoBehaviour {
@@ -22,8 +23,9 @@ namespace EasyUI.Dialogs {
             canvas.SetActive(false);
         }
 
-        public DialogUI SetMessage(string message) {
+        public DialogUI SetMessage(string message, int alive_time) {
             dialog.DialogText = message;
+            dialog.alive_time = alive_time;
             return Instance;
         }
 
@@ -34,7 +36,7 @@ namespace EasyUI.Dialogs {
         private IEnumerator WaitBeforeShow(){
             dialogUIText.text = dialog.DialogText;
             canvas.SetActive(true);
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(dialog.alive_time);
             canvas.SetActive(false);
             dialog = new Dialog();
         }

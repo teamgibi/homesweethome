@@ -34,7 +34,7 @@ public class LoginValidation : MonoBehaviour {
         string pass = password.text;
         if(mail == "" || pass == "") {
             Debug.Log("Please fill all the input fields...");
-            DialogUI.Instance.SetMessage("Please fill all input fields!").Show();
+            DialogUI.Instance.SetMessage("Please fill all input fields!", 3).Show();
         }
         else {
             SignInWithCredentials(mail, pass);
@@ -46,7 +46,7 @@ public class LoginValidation : MonoBehaviour {
         auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task => {
             if (task.IsCanceled) {
                 Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
-                DialogUI.Instance.SetMessage("Login cancelled!").Show();
+                DialogUI.Instance.SetMessage("Login cancelled!", 3).Show();
                 return;
             }
             if (task.IsFaulted) {
@@ -57,7 +57,7 @@ public class LoginValidation : MonoBehaviour {
                         authErrorCode = String.Format("AuthError.{0}: ",
                         ((Firebase.Auth.AuthError)firebaseEx.ErrorCode).ToString());
                         Debug.Log("SignInWithEmailAndPasswordAsync encountered an error: " + authErrorCode + exception.ToString());
-                        DialogUI.Instance.SetMessage(exception.ToString()).Show();
+                        DialogUI.Instance.SetMessage(exception.ToString(), 5).Show();
                         return;
                     }
                 }
@@ -65,13 +65,17 @@ public class LoginValidation : MonoBehaviour {
             Firebase.Auth.FirebaseUser user = task.Result;
             Debug.LogFormat("User signed in successfully: {0} ({1} {2})", user.DisplayName, user.UserId, user.IsEmailVerified);
             if (user.IsEmailVerified){
-                DialogUI.Instance.SetMessage("Successfully logged in!").Show();
-                SceneManager.LoadScene("Apartment Selection Scene");
+                DialogUI.Instance.SetMessage("Successfully logged in!", 3).Show();
+                Invoke("AfterLogin", 4);
             } else{
-                DialogUI.Instance.SetMessage("Please verify your email address!").Show();
+                DialogUI.Instance.SetMessage("Please verify your email address!", 3).Show();
             }
             return;
         });
+    }
+
+    private void AfterLogin(){
+        SceneManager.LoadScene("Apartment Selection Scene");
     }
 
     public void Register() {
