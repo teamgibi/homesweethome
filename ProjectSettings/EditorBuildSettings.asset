@@ -26,18 +26,27 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu/Apartment Selection Scene.unity
     guid: 305153495c9a940a5a456f48c4c34752
-  - enabled: 1
-    path: Assets/Scenes/Apartments/Apartment-1.unity
-    guid: 8c72d6d089f82d540b025e8a29500bff
-  - enabled: 1
-    path: Assets/Scenes/Apartments/Apartment-2.unity
-    guid: e716e7c44bb7cc640950435e381122ec
-  - enabled: 1
-    path: Assets/Scenes/Apartments/Apartment-3.unity
-    guid: efbb5376e1b02d74da15078992c3e894
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Apartments/Lobby.unity
     guid: 7482698f20e20f74a90dd4068c8865bc
+  - enabled: 1
+    path: Assets/Scenes/Apartments/Apartment3.unity
+    guid: bac87d458459b410bab2a291b8fb52f2
+  - enabled: 1
+    path: Assets/Scenes/Apartments/Apartment2.unity
+    guid: 1fcf7d713d06c4b21ad8b6969acb6b34
+  - enabled: 1
+    path: Assets/Scenes/Apartments/Apartment1.unity
+    guid: 6eccfa07e65df40338295d4a0825225e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b56be7bc1faad4bfc89ab83ea3366708, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 15ae49803c01c4429923c6172756b7a3, type: 2}
