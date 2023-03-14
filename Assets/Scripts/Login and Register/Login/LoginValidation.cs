@@ -88,5 +88,11 @@ public class LoginValidation : MonoBehaviour {
 
     public void OnClickGetGoogleCode() {
         GoogleAuthenticator.SignInWithGoogle();
+        Invoke("AfterGoogle", 8);
+        Invoke("AfterLogin", 11);
+    }
+
+    public void AfterGoogle(){
+        DialogUI.Instance.SetMessage("Successfully logged in!", 3).Show();
     }
 }
