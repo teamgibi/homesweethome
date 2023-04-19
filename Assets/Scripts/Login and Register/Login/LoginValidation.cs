@@ -17,10 +17,8 @@ public class LoginValidation : MonoBehaviour {
 
     public InputField email;
     public InputField password;
-    public GameObject[] canvas;
 
     public void Start() {
-        canvas[0].SetActive(true);
     }
 
     private void Update() {

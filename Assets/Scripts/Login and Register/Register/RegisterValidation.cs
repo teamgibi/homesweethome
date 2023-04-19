@@ -18,10 +18,11 @@ public class RegisterValidation : MonoBehaviour {
     public InputField registerMail;
     public InputField registerPassword;
     public InputField confirmPassword;
-    public GameObject[] canvas;
+
+    public void Awake(){
+    }
 
     public void Start() {
-        canvas[0].SetActive(true);
     }
 
     private void Update() {
@@ -45,6 +46,8 @@ public class RegisterValidation : MonoBehaviour {
             DialogUI.Instance.SetMessage("Passwords doesn't match!", 3).Show();
         }
         else {
+            Debug.Log(registerEmail);
+            Debug.Log(registerPass);
             SignUpWithCredentials(registerEmail, registerPass);
         }
     }
