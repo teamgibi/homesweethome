@@ -46,8 +46,6 @@ public class RegisterValidation : MonoBehaviour {
             DialogUI.Instance.SetMessage("Passwords doesn't match!", 3).Show();
         }
         else {
-            Debug.Log(registerEmail);
-            Debug.Log(registerPass);
             SignUpWithCredentials(registerEmail, registerPass);
         }
     }
@@ -96,6 +94,6 @@ public class RegisterValidation : MonoBehaviour {
     }
 
     public void BackToLoginScene() {
-        SceneManager.LoadScene("Login Scene");
+        SceneManager.LoadScene("Lobby");
     }
 }

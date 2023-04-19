@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class ProducerBackToLogin : MonoBehaviour {
     public void BackToLoginScene() {
-        SceneManager.LoadScene("Login Scene");
+        SceneManager.LoadScene("Lobby");
     }
 }

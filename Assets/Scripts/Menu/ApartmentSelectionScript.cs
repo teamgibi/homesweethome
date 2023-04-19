@@ -29,7 +29,7 @@ public class ApartmentSelectionScript : MonoBehaviour {
     }
 
     public void Logout() {
-        SceneManager.LoadScene("Login Scene");
+        SceneManager.LoadScene("Lobby");
         //bind with the firebase ops.
     }
 }
