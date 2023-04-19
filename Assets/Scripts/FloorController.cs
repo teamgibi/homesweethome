@@ -9,7 +9,6 @@ public class FloorController : MonoBehaviour
     void Start()
     {
         var dropdown = transform.GetComponent<Dropdown>();
-        HandleFloorDropdown(dropdown);
     }
 
 
