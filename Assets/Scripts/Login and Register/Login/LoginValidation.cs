@@ -31,7 +31,6 @@ public class LoginValidation : MonoBehaviour {
         string mail = email.text;
         string pass = password.text;
         if(mail == "" || pass == "") {
-            Debug.Log("Please fill all the input fields...");
             DialogUI.Instance.SetMessage("Please fill all input fields!", 3).Show();
         }
         else {
@@ -64,7 +63,6 @@ public class LoginValidation : MonoBehaviour {
             Debug.LogFormat("User signed in successfully: {0} ({1} {2})", user.DisplayName, user.UserId, user.IsEmailVerified);
             if (user.IsEmailVerified){
                 DialogUI.Instance.SetMessage("Successfully logged in!", 3).Show();
-                Invoke("AfterLogin", 4);
             } else{
                 DialogUI.Instance.SetMessage("Please verify your email address!", 3).Show();
             }
@@ -72,22 +70,9 @@ public class LoginValidation : MonoBehaviour {
         });
     }
 
-    private void AfterLogin(){
-        SceneManager.LoadScene("Apartment Selection Scene");
-    }
-
-    public void Register() {
-        SceneManager.LoadScene("Register Scene");
-    }
-
-    public void Settings() {
-        SceneManager.LoadScene("Settings Scene");
-    }
-
     public void OnClickGetGoogleCode() {
         GoogleAuthenticator.SignInWithGoogle();
         Invoke("AfterGoogle", 8);
-        Invoke("AfterLogin", 11);
     }
 
     public void AfterGoogle(){
