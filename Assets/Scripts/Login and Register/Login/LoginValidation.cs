@@ -70,10 +70,6 @@ public class LoginValidation : MonoBehaviour {
         });
     }
 
-    public void Settings() {
-        SceneManager.LoadScene("Settings Scene");
-    }
-
     public void OnClickGetGoogleCode() {
         GoogleAuthenticator.SignInWithGoogle();
         Invoke("AfterGoogle", 8);
