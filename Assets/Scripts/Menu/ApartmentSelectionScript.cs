@@ -9,7 +9,6 @@ public class ApartmentSelectionScript : MonoBehaviour {
     public GameObject[] canvas;
 
     public void Start() {
-        canvas[0].SetActive(true);
     }
 
     public void Apartment1(){
@@ -30,6 +29,5 @@ public class ApartmentSelectionScript : MonoBehaviour {
 
     public void Logout() {
         SceneManager.LoadScene("Lobby");
-        //bind with the firebase ops.
     }
 }

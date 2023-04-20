@@ -38,11 +38,9 @@ public class RegisterValidation : MonoBehaviour {
         string confirmPass = confirmPassword.text;
 
         if(registerEmail == "" || registerPass == "" || confirmPass == "") {
-            Debug.Log("Please fill all the input fields...");
             DialogUI.Instance.SetMessage("Please fill all input fields!", 3).Show();
         }
         else if (!string.Equals(registerPass, confirmPass)) {
-            Debug.Log("Password doesn't match!");
             DialogUI.Instance.SetMessage("Passwords doesn't match!", 3).Show();
         }
         else {
@@ -93,7 +91,4 @@ public class RegisterValidation : MonoBehaviour {
         });
     }
 
-    public void BackToLoginScene() {
-        SceneManager.LoadScene("Lobby");
-    }
 }
