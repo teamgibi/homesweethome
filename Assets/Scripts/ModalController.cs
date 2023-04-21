@@ -34,9 +34,9 @@ public class ModalController : MonoBehaviour
     public void hoverEnter()
     {
         selectedObject = this.gameObject;
-
+        fcp.startingColor = selectedObject.GetComponent<Renderer>().material.color;
         // Get object bounds
-        Bounds objectBounds = gameObject.GetComponent<Renderer>().bounds;
+        Bounds objectBounds = selectedObject.GetComponent<Renderer>().bounds;
 
         // Calculate modal position
         Vector3 modalPosition = new Vector3(objectBounds.center.x, objectBounds.max.y + 1f, objectBounds.center.z);
@@ -44,7 +44,6 @@ public class ModalController : MonoBehaviour
         // Set modal position
         deleteModal.transform.position = modalPosition;
         colorPickerModal.transform.position = modalPosition;
-
 
         // Show modal
         deleteModal.SetActive(true);
@@ -57,15 +56,16 @@ public class ModalController : MonoBehaviour
     {
         deleteModal.SetActive(false);
         colorPickerModal.SetActive(false);
+        selectedObject = null;
     }
 
     private void OnChangeColor(Color co)
     {
-        gameObject.GetComponent<Renderer>().material.color = co;
+        selectedObject.GetComponent<Renderer>().material.color = co;
     }
 
     private void changeColor()
     {
-        gameObject.GetComponent<Renderer>().material.color = fcp.color;
+        selectedObject.GetComponent<Renderer>().material.color = fcp.color;
     }
 }
