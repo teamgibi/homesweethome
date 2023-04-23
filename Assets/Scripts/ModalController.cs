@@ -8,6 +8,8 @@ public class ModalController : MonoBehaviour
 {
     public GameObject deleteModal;
     public GameObject colorPickerModal;
+
+    public bool isColorable;
     private GameObject selectedObject;
     private FlexibleColorPicker fcp;
 
@@ -17,11 +19,13 @@ public class ModalController : MonoBehaviour
         Button btn = deleteModal.transform.Find("Button").gameObject.GetComponent<Button>();
         btn.onClick.AddListener(deleteObject);
 
-        fcp = colorPickerModal.transform.Find("ColorPicker").gameObject.GetComponent<FlexibleColorPicker>();
-        //Button colorChangeBtn = colorPickerModal.transform.Find("ColorPicker").gameObject.transform.Find("ApplyButton").gameObject.GetComponent<Button>();
+        if (isColorable) {
+            fcp = colorPickerModal.transform.Find("ColorPicker").gameObject.GetComponent<FlexibleColorPicker>();
+            //Button colorChangeBtn = colorPickerModal.transform.Find("ColorPicker").gameObject.transform.Find("ApplyButton").gameObject.GetComponent<Button>();
 
-        fcp.onColorChange.AddListener(OnChangeColor);
-        //Debug.Log(colorChangeBtn);
+            fcp.onColorChange.AddListener(OnChangeColor);
+            //Debug.Log(colorChangeBtn);
+        }
     }
 
     private void deleteObject()
@@ -34,7 +38,6 @@ public class ModalController : MonoBehaviour
     public void hoverEnter()
     {
         selectedObject = this.gameObject;
-        fcp.startingColor = selectedObject.GetComponent<Renderer>().material.color;
         // Get object bounds
         Bounds objectBounds = selectedObject.GetComponent<Renderer>().bounds;
 
@@ -43,19 +46,23 @@ public class ModalController : MonoBehaviour
 
         // Set modal position
         deleteModal.transform.position = modalPosition;
-        colorPickerModal.transform.position = modalPosition;
 
         // Show modal
         deleteModal.SetActive(true);
-        colorPickerModal.SetActive(true);
 
-
+        if (isColorable) {
+            fcp.startingColor = selectedObject.GetComponent<Renderer>().material.color;
+            colorPickerModal.transform.position = modalPosition;
+            colorPickerModal.SetActive(true);
+        }
     }
 
     public void hoverExit()
     {
         deleteModal.SetActive(false);
-        colorPickerModal.SetActive(false);
+        if (isColorable) {
+            colorPickerModal.SetActive(false);
+        }
         selectedObject = null;
     }
 
