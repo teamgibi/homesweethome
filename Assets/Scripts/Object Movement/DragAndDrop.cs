@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System;
 public class DragAndDrop : MonoBehaviour {
 
     private GameObject selectedObject;
@@ -18,8 +18,7 @@ public class DragAndDrop : MonoBehaviour {
             } else {
                 Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(selectedObject.transform.position).z);
                 Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
-                selectedObject.transform.position = new Vector3(worldPosition.x, 0f, worldPosition.z);
-
+                selectedObject.transform.position = new Vector3(((int)Math.Round(worldPosition.x/selectedObject.GetComponent<Renderer>().bounds.size.x))*((int)Math.Round(selectedObject.GetComponent<Renderer>().bounds.size.x, 0)), 0f, ((int)Math.Round(worldPosition.z/selectedObject.GetComponent<Renderer>().bounds.size.z))*((int)Math.Round(selectedObject.GetComponent<Renderer>().bounds.size.z, 0)));
                 selectedObject = null;
                 Cursor.visible = true;
             }
@@ -28,8 +27,7 @@ public class DragAndDrop : MonoBehaviour {
         if(selectedObject != null) {
             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(selectedObject.transform.position).z);
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
-            selectedObject.transform.position = new Vector3(worldPosition.x, .25f, worldPosition.z);
-
+            selectedObject.transform.position =new Vector3(((int)Math.Round(worldPosition.x/selectedObject.GetComponent<Renderer>().bounds.size.x))*((int)Math.Round(selectedObject.GetComponent<Renderer>().bounds.size.x, 0)), .25f,((int)Math.Round(worldPosition.z/selectedObject.GetComponent<Renderer>().bounds.size.z))*((int)Math.Round(selectedObject.GetComponent<Renderer>().bounds.size.z, 0)));
             if (Input.GetMouseButtonDown(1)) {
                 selectedObject.transform.rotation = Quaternion.Euler(new Vector3(
                     selectedObject.transform.rotation.eulerAngles.x,
