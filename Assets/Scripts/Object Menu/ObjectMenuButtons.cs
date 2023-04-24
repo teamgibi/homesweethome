@@ -15,7 +15,6 @@ public class ObjectMenuButtons : MonoBehaviour {
 	}
 
     void TaskOnClick(){
-        UnityEngineInternal.APIUpdaterRuntimeServices.AddComponent(prefab, "Assets/Scripts/Object Menu/ObjectMenuButtons.cs (18,9)", "XRGrabInteractable"); 
 		Instantiate(prefab, new Vector3(camera.transform.position.x+2,camera.transform.position.y,camera.transform.position.z), Quaternion.identity);
 	}
 
