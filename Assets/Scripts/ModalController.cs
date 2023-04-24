@@ -68,7 +68,7 @@ public class ModalController : MonoBehaviour
 
     private void OnChangeColor(Color co)
     {
-        gameObject.GetComponent<Renderer>().material.color = co;
+        selectedObject.GetComponent<Renderer>().material.color = co;
     }
 
     private void changeColor()
