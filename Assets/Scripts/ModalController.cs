@@ -42,7 +42,7 @@ public class ModalController : MonoBehaviour
     public void hoverEnter()
     {
         selectedObject = this.gameObject;
-        Debug.Log(selectedObject.name);
+        // Debug.Log(selectedObject.name);
         // Show modal
         deleteModal.SetActive(true);
 
