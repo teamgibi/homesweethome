@@ -84,7 +84,6 @@ public class RegisterValidation : MonoBehaviour {
                     }
                     Debug.Log("Verification email sent successfully.");
                     DialogUI.Instance.SetMessage("User successfully registered and verification email sent!", 3).Show();
-                    Invoke("BackToLoginScene", 3);
                 });
             }
             return;
