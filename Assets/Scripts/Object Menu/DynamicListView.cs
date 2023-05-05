@@ -73,18 +73,18 @@ public class DynamicListView : MonoBehaviour
                     Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
                     break;
                 case UnityWebRequest.Result.Success:
-                    //Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
-                    //JObject json = JObject.Parse(webRequest.downloadHandler.text);
-                    //string json_data = JsonConvert.SerializeObject(webRequest.downloadHandler.text);
-                    //JArray textArray = JArray.Parse(webRequest.downloadHandler.text);
-
                     Product[] products = JsonConvert.DeserializeObject<Product[]>(webRequest.downloadHandler.text);
 
                     foreach (Product product in products)
                     {
-                        GameObject prefab = Instantiate(listItemPrefab, listItemHolder);
-                        prefab.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = product.product_name + "\n\n$" + product.sale_price;
-                        StartCoroutine(DownloadImage(product.thumbnail_image_url, prefab));
+                        if(product.model.glb != null)
+                        {
+                            GameObject prefab = Instantiate(listItemPrefab, listItemHolder);
+                            prefab.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = product.product_name + "\n\n$" + product.sale_price;
+                            ModelLoader modelLoader = prefab.GetComponent<ModelLoader>();
+                            modelLoader.url = product.model.glb;
+                            StartCoroutine(DownloadImage(product.thumbnail_image_url, prefab));
+                        }
                     }
                     break;
             }
@@ -123,15 +123,7 @@ public class DynamicListView : MonoBehaviour
 
     }
 
-    public GameObject Create(string message)
-    {
-        var go = Instantiate(listItemPrefab, listItemHolder);
-        //go.GetComponent<UnityEngine.UI.Text>().text = message;
-        go.SetActive(false); 
-        return go;
-    }
-
-        string authenticate(string username, string password)
+    string authenticate(string username, string password)
     {
         string auth = username + ":" + password;
         auth = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(auth));

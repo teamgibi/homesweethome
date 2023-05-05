@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 7109641307226833884}
   - component: {fileID: 7109641307226833885}
   - component: {fileID: 7109641307226833886}
+  - component: {fileID: 1774289769627879864}
   m_Layer: 0
   m_Name: ObjectListItem
   m_TagString: Untagged
@@ -199,6 +200,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1774289769627879864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7109641307226833872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 528aab46921b0440b8e1aa070e417b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  downloadButton: {fileID: 7109641307226833886}
+  url: 
 --- !u!1 &7109641307836827999
 GameObject:
   m_ObjectHideFlags: 0
