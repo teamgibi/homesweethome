@@ -18,10 +18,11 @@ public class RegisterValidation : MonoBehaviour {
     public InputField registerMail;
     public InputField registerPassword;
     public InputField confirmPassword;
-    public GameObject[] canvas;
+
+    public void Awake(){
+    }
 
     public void Start() {
-        canvas[0].SetActive(true);
     }
 
     private void Update() {
@@ -37,11 +38,9 @@ public class RegisterValidation : MonoBehaviour {
         string confirmPass = confirmPassword.text;
 
         if(registerEmail == "" || registerPass == "" || confirmPass == "") {
-            Debug.Log("Please fill all the input fields...");
             DialogUI.Instance.SetMessage("Please fill all input fields!", 3).Show();
         }
         else if (!string.Equals(registerPass, confirmPass)) {
-            Debug.Log("Password doesn't match!");
             DialogUI.Instance.SetMessage("Passwords doesn't match!", 3).Show();
         }
         else {
@@ -85,14 +84,10 @@ public class RegisterValidation : MonoBehaviour {
                     }
                     Debug.Log("Verification email sent successfully.");
                     DialogUI.Instance.SetMessage("User successfully registered and verification email sent!", 3).Show();
-                    Invoke("BackToLoginScene", 3);
                 });
             }
             return;
         });
     }
 
-    public void BackToLoginScene() {
-        SceneManager.LoadScene("Login Scene");
-    }
 }

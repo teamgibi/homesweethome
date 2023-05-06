@@ -60,3 +60,4 @@ crashlytics-build.properties
 
 /[Uu]ser[Ss]ettings/
 .vsconfig
+mono_crash.*

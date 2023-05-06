@@ -18,6 +18,6 @@ public class SettingsValidation : MonoBehaviour {
     }
 
     public void BackToLoginScene() {
-        SceneManager.LoadScene("Login Scene");
+        SceneManager.LoadScene("Lobby");
     }
 }

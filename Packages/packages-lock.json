@@ -254,6 +254,15 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.virgis.vr-keyboard": {
+      "version": "0.9.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.xr.interaction.toolkit": "2.0.1"
+      },
+      "url": "https://package.openupm.com"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

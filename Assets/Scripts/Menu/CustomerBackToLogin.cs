@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class CustomerBackToLogin : MonoBehaviour {
 
     public void BackToLoginScene() {
-        SceneManager.LoadScene("Login Scene");
+        SceneManager.LoadScene("Lobby");
     }
 
 }
