@@ -514,7 +514,7 @@ namespace TTT
 			if (myTerrain.terrainData==null) {Debug.LogError("Terrain generation failed.."); return;};
 
 			string heightmap_name = fixedPath+"-heightmap.raw";
-			myTerrain.terrainData.SetHeights(0, 0, ReadRawHeightMap(heightmap_name, splatA.width+1,myTerrain.terrainData.heightmapWidth,myTerrain.terrainData.heightmapHeight));
+			myTerrain.terrainData.SetHeights(0, 0, ReadRawHeightMap(heightmap_name, splatA.width+1,myTerrain.terrainData.heightmapResolution,myTerrain.terrainData.heightmapResolution));
 
 			ApplySelectedTexturesToTerrain();
 			ApplySplatmap();
@@ -1408,7 +1408,7 @@ namespace TTT
 
 			float[,,] splatmapData = terrainData.GetAlphamaps(0, 0, w, w);
 
-			float terrainScale = (float)w / ((float)terrainData.heightmapWidth-1);
+			float terrainScale = (float)w / ((float)terrainData.heightmapResolution-1);
 			float terrainHeight = terrainData.size.y;
 			int terrainSample = Mathf.CeilToInt(terrainScale);
 

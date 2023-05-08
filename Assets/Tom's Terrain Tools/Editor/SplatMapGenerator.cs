@@ -135,8 +135,8 @@ namespace TTT_Tools
 
 			// TODO: read heightdata
 			var terrainData = myTerrain.terrainData;
-			var width = terrainData.heightmapWidth;
-			var length = terrainData.heightmapHeight;
+			var width = terrainData.heightmapResolution;
+			var length = terrainData.heightmapResolution;
 //			var height = terrainData.size.y;
 
 			var newSplatmap = new Texture2D(width,length,TextureFormat.RGB24,false);
@@ -241,8 +241,8 @@ namespace TTT_Tools
 		Vector2 GetTerrainHeightRange()
 		{
 			var terrainData = myTerrain.terrainData;
-			var width = terrainData.heightmapWidth;
-			var length = terrainData.heightmapHeight;
+			var width = terrainData.heightmapResolution;
+			var length = terrainData.heightmapResolution;
 
 			float minY = Mathf.Infinity;
 			float maxY = Mathf.NegativeInfinity;
