@@ -18,6 +18,9 @@ public class LoginValidation : MonoBehaviour {
     public InputField email;
     public InputField password;
 
+    public GameObject MapForm;
+    public GameObject LoginForm;
+
     public void Start() {
     }
 
@@ -63,8 +66,11 @@ public class LoginValidation : MonoBehaviour {
             Debug.LogFormat("User signed in successfully: {0} ({1} {2})", user.DisplayName, user.UserId, user.IsEmailVerified);
             if (user.IsEmailVerified){
                 DialogUI.Instance.SetMessage("Successfully logged in!", 3).Show();
+                LoginForm.SetActive(false);
+                MapForm.SetActive(true);
             } else{
                 DialogUI.Instance.SetMessage("Please verify your email address!", 3).Show();
+
             }
             return;
         });
@@ -77,5 +83,7 @@ public class LoginValidation : MonoBehaviour {
 
     public void AfterGoogle(){
         DialogUI.Instance.SetMessage("Successfully logged in!", 3).Show();
+        LoginForm.SetActive(false);
+        MapForm.SetActive(true);
     }
 }

@@ -18,6 +18,9 @@ public class RegisterValidation : MonoBehaviour {
     public InputField registerMail;
     public InputField registerPassword;
     public InputField confirmPassword;
+    
+    public GameObject RegisterForm;
+    public GameObject LoginForm;
 
     public void Awake(){
     }
@@ -86,6 +89,8 @@ public class RegisterValidation : MonoBehaviour {
                     DialogUI.Instance.SetMessage("User successfully registered and verification email sent!", 3).Show();
                 });
             }
+            RegisterForm.SetActive(false);
+            LoginForm.SetActive(true);
             return;
         });
     }
