@@ -15,10 +15,12 @@ using System.Collections;
             isMainCamera = false;
             MainCamera.SetActive(false);
             TopCamera.SetActive(true);
+            Destroy(prefab);
         } else {
             isMainCamera = true;
             MainCamera.SetActive(true);
             TopCamera.SetActive(false);
+            Destroy(prefab);
         }
     }
 

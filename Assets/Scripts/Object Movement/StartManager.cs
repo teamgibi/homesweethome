@@ -14,7 +14,6 @@ public class StartManager : MonoBehaviour
 	void Start () {
         XR_device_simulator.SetActive(false);
         complete_XR_origin_setup.SetActive(false);
-
 	}
 
     void Update(){
