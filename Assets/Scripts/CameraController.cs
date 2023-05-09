@@ -9,6 +9,7 @@ using System.Collections;
     public GameObject MainCamera;
     public GameObject TopCamera;
     public GameObject prefab;
+    public GameObject canvas;
 
     public void SwitchCamera(){
         if (isMainCamera){
@@ -26,7 +27,7 @@ using System.Collections;
 
     public void StartXR(){
         MainCamera.SetActive(false);
-        Instantiate(prefab, new Vector3(transform.position.x,transform.position.y,transform.position.z), Quaternion.identity);
+        Instantiate(prefab, new Vector3(0,0,0), Quaternion.identity);
+        canvas.SetActive(false);
     }
-
  }
