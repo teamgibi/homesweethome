@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class FloorController : MonoBehaviour
 {
+    public GameObject terrain;
 
     void Start()
     {
@@ -15,8 +16,7 @@ public class FloorController : MonoBehaviour
     public void HandleFloorDropdown(Dropdown dropdown)
     {
         int index = dropdown.value;
-        string floor = dropdown.options[index].text; 
-        Debug.Log(floor);
+        terrain.transform.position = new Vector3(terrain.transform.position.x, -3 * index, terrain.transform.position.z);
     }
    
 }

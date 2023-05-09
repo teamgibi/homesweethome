@@ -70,6 +70,8 @@ public class ModelLoader : MonoBehaviour
         ResetWrapper();
         GameObject model = Importer.LoadFromFile(path);
         model.transform.SetParent(wrapper.transform);
+        GameObject origin = GameObject.Find("XR Origin");
+        model.transform.position = new Vector3(origin.transform.position.x+2, origin.transform.position.y, origin.transform.position.z);
         model.AddComponent<BoxCollider>();
         model.AddComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>();
         ModalController modalController = model.AddComponent<ModalController>();
