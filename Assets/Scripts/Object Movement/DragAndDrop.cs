@@ -37,7 +37,7 @@ public class DragAndDrop : MonoBehaviour {
                 }
             }
 
-            if(selectedObject != null) {
+            if(selectedObject != null && selectedObject != ground[0]) {
                 Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(selectedObject.transform.position).z);
                 Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
                 selectedObject.transform.position =new Vector3(((int)Math.Round(worldPosition.x/x_size))*((int)Math.Round(x_size, 0)), .25f,((int)Math.Round((worldPosition.z/z_size)*z_size,0)));
