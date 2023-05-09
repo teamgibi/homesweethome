@@ -20,7 +20,7 @@ public class ModelLoader : MonoBehaviour
         wrapper = new GameObject
         {
             name = "Model",
-            transform = { position = new Vector3(0f, 1f, 0f) }
+            transform = { position = new Vector3(0f, 0f, 0f) }
         };
         downloadButton.onClick.AddListener(OnDownloadButtonClick);
     }
