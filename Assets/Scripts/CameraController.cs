@@ -10,24 +10,25 @@ using System.Collections;
     public GameObject TopCamera;
     public GameObject prefab;
     public GameObject canvas;
+    public GameObject eventSystem;
 
     public void SwitchCamera(){
         if (isMainCamera){
             isMainCamera = false;
             MainCamera.SetActive(false);
             TopCamera.SetActive(true);
-            Destroy(prefab);
         } else {
             isMainCamera = true;
             MainCamera.SetActive(true);
             TopCamera.SetActive(false);
-            Destroy(prefab);
         }
     }
 
     public void StartXR(){
         MainCamera.SetActive(false);
-        Instantiate(prefab, new Vector3(0,0,0), Quaternion.identity);
+        GameObject clonePrefab = Instantiate(prefab, new Vector3(0,-3,0), Quaternion.identity);
+        clonePrefab.SetActive(true);
+        eventSystem.SetActive(false);
         canvas.SetActive(false);
     }
  }

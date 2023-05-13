@@ -12,6 +12,6 @@ public class AddingObject : MonoBehaviour {
 	}
 
 	void TaskOnClick(){
-		Instantiate(prefab, new Vector3(0,0,4), Quaternion.identity);
+		Instantiate(prefab, new Vector3(0,-3f,4), Quaternion.identity);
 	}
 }
