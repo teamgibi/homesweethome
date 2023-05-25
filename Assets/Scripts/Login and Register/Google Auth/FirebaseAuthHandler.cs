@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class FirebaseAuthHandler
 {
-    private const string ApiKey = "AIzaSyCpIcpAABw5swuRMiCBcZ1coZe9fpyqy3M";
+    private const string ApiKey = "<API_KEY>";
 
     // Unused for now. Manual REST API for Google Authentication, not with Firebase.
     public static void SingInWithToken(string token, string providerId) {
