@@ -6,10 +6,10 @@ using Proyecto26;
 using UnityEngine;
 
 public static class GoogleAuthenticator {
-    private const string ClientId = "579803631028-6kv3rl2hl8iknd3btussmelvq83sjjfd.apps.googleusercontent.com";
-    private const string ClientSecret = "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";
-    private static string RedirectUri = "https://us-central1-autonomous-gist-376319.cloudfunctions.net/saveAuthToken"; 
-    private static string GetAuthTokenEndpoint = "https://us-central1-autonomous-gist-376319.cloudfunctions.net/getAuthToken";
+    private const string ClientId = "<CLIENT_ID>";
+    private const string ClientSecret = "<CLIENT_SECRET>";
+    private static string RedirectUri = "<PROJECT_URL>/saveAuthToken"; 
+    private static string GetAuthTokenEndpoint = "<PROJECT_URL>/getAuthToken";
 
     public static void SignInWithGoogle() {
         var guid = Guid.NewGuid().ToString();
