@@ -10,7 +10,7 @@ public class FirebaseFunctions {
     public int lastnum = 0;
 
     /* Unused for now. Manual REST API for Sign Up, not with Firebase.
-    private const string ApiKey = "AIzaSyCpIcpAABw5swuRMiCBcZ1coZe9fpyqy3M";
+    private const string ApiKey = "<API_KEY>";
     public void SignUpWithCredentials(string email, string password) {
         var payLoad = $"{{\"email\":\"${email}\",\"password\":\"${password}\",\"returnSecureToken\":true}}";
         RestClient.Post($"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key={ApiKey}", payLoad).Then(
