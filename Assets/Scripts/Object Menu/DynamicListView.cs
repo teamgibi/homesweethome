@@ -50,7 +50,7 @@ public class DynamicListView : MonoBehaviour
 
     IEnumerator GetRequest(string uri)
     {
-        string authorization = authenticate("abugraokkali@outlook.com", "6447d9e10da93");
+        string authorization = authenticate("<ACCOUNT>", "<API_KEY>");
 
         UnityWebRequest webRequest = UnityWebRequest.Get(uri);
         webRequest.SetRequestHeader("AUTHORIZATION", authorization);
