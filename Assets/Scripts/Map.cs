@@ -7,7 +7,7 @@ using System;
 
 public class Map : MonoBehaviour
 {
-    private string apiKey = "AIzaSyD-F9iw7B4zZo21WOuXFiyzFsldtDSFtKU";
+    private string apiKey = "<API_KEY>";
     public float lat = 39.921852f;
     public float lon = 32.799187f;
     public int zoom = 12;
@@ -50,7 +50,7 @@ public class Map : MonoBehaviour
     IEnumerator GetGoogleMap() {
         float mark1lat = lat + 0.05f; 
         float mark1lon = lon + 0.05f; 
-        url = "https://maps.googleapis.com/maps/api/staticmap?center=39.92185,32.79919&zoom=12&size=800x600&scale=high&maptype=roadmap&markers=label:1|39.86185,32.84919&markers=label:2|39.9685,32.75019&markers=label:3|39.9085,32.82019&key=AIzaSyD-F9iw7B4zZo21WOuXFiyzFsldtDSFtKU";
+        url = "https://maps.googleapis.com/maps/api/staticmap?center=39.92185,32.79919&zoom=12&size=800x600&scale=high&maptype=roadmap&markers=label:1|39.86185,32.84919&markers=label:2|39.9685,32.75019&markers=label:3|39.9085,32.82019&key=<API_KEY>";
         mapIsLoading = true;
         UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
         yield return www.SendWebRequest();
